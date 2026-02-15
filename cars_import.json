@@ -1,0 +1,110 @@
+[
+    {
+        "id": "kia-stonic",
+        "metadata": {
+            "name": "Kia Stonic",
+            "pricing": {
+                "1day": 40,
+                "2-3days": 35,
+                "4-7days": 30,
+                "7-21days": 25,
+                "21plus": "Cena dohodou",
+                "deposit": 200
+            },
+            "limits": {
+                "daily": "200km",
+                "excess": "0,10€/km"
+            },
+            "category": "Kompakt",
+            "shortDescription": "Kompaktné crossover ideálne pre mestské dobrodružstvá"
+        },
+        "brand": "Kia",
+        "model": "Stonic",
+        "price": 40,
+        "category": "Kompakt",
+        "seats": 5,
+        "transmission": "Automat",
+        "fuel": "Benzín",
+        "luggage": "3 kusy",
+        "description": "Kia Stonic je moderné kompaktné crossover vozidlo, ktoré kombinuje štýl, komfort a praktickosť. Ideálne pre mestskú jazdu i dlhšie výlety. Vozidlo je vybavené najnovšími bezpečnostnými prvkami a ponúka výnimočný jazdný komfort.",
+        "features": [
+            "5 miest",
+            "Manuál",
+            "Klimatizácia"
+        ],
+        "show_on_homepage": true,
+        "source": "admin"
+    },
+    {
+        "id": "skoda-octavia-sedan",
+        "metadata": {
+            "name": "Škoda Octavia Sedan",
+            "pricing": {
+                "1day": 40,
+                "2-3days": 35,
+                "4-7days": 30,
+                "7-21days": 25,
+                "21plus": "Cena dohodou",
+                "deposit": 200
+            },
+            "limits": {
+                "daily": "200km",
+                "excess": "0,10€/km"
+            },
+            "category": "Sedan",
+            "shortDescription": "Elegantný sedan s vynikajúcim komfortom a priestorom"
+        },
+        "brand": "Škoda",
+        "model": "Octavia Sedan",
+        "price": 40,
+        "category": "Sedan",
+        "seats": 5,
+        "transmission": "Manuál",
+        "fuel": "Benzín",
+        "luggage": "4 kusy",
+        "description": "Elegantný sedan s vynikajúcim komfortom a priestorom. Škoda Octavia ponúka luxusné cestovanie s moderným dizajnom a spoľahlivou technikou.",
+        "features": [
+            "5 miest",
+            "Automat",
+            "Prémium"
+        ],
+        "show_on_homepage": true,
+        "source": "admin"
+    },
+    {
+        "id": "skoda-octavia-rs",
+        "metadata": {
+            "name": "Škoda Octavia RS",
+            "pricing": {
+                "1day": 70,
+                "2-3days": 65,
+                "4-7days": 60,
+                "7-21days": 50,
+                "21plus": "Cena dohodou",
+                "deposit": 500
+            },
+            "limits": {
+                "daily": "200km",
+                "excess": "0,10€/km"
+            },
+            "category": "Šport",
+            "shortDescription": "Vysokovýkonná športová verzia s dynamickým dizajnom"
+        },
+        "brand": "Škoda",
+        "model": "Octavia RS",
+        "price": 70,
+        "category": "Šport",
+        "seats": 5,
+        "transmission": "Automat",
+        "fuel": "Diesel",
+        "luggage": "4 kusy",
+        "description": "Vysokovýkonná športová verzia s dynamickým dizajnom. Škoda Octavia RS kombinuje športový výkon s praktickosťou rodinného auta.",
+        "features": [
+            "5 miest",
+            "Manuál",
+            "Šport"
+        ],
+        "show_on_homepage": true,
+        "source": "admin"
+    }
+]

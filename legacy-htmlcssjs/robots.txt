@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Main content
+Allow: /kontakt
+Allow: /ponuka-vozidiel
+Allow: /vozidlo
+Allow: /ochrana-osobnych-udajov
+Allow: /podmienky-prenajmu
+
+# Static assets
+Allow: /styles/
+Allow: /js/
+Allow: /sources/
+
+# Block PHP files and sensitive directories
+Disallow: /*.php
+Disallow: /contact-form.php
+Disallow: /reservation-form.php
+
+# Block system files
+Disallow: /.htaccess
+Disallow: /*.log
+
+# Sitemap location
+Sitemap: https://autopozicovnamichalovce.sk/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail vozidla - Prenájom áut Michalovce | Darius Garage</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Informácie o vozidlách v našej autopožičovni. Rezervujte si spoľahlivé auto s kompletným poistením. Od 25€/deň.">
+    <meta name="keywords" content="vozidlo, prenájom áut, Škoda, Kia, Toyota, Peugeot, rezervácia online, Michalovce">
+    <meta name="author" content="Darius Garage s.r.o.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://autopozicovnamichalovce.sk/vozidlo">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Vozidlo - Prenájom áut Michalovce">
+    <meta property="og:description" content="Informácie o vozidlách v našej autopožičovni. Rezervujte si spoľahlivé auto s kompletným poistením.">
+    <meta property="og:url" content="https://autopozicovnamichalovce.sk/vozidlo">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Darius Garage - Autopožičovňa Michalovce">
+    <meta property="og:locale" content="sk_SK">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vozidlo - Prenájom áut Michalovce">
+    <meta name="twitter:description" content="Informácie o vozidlách v našej autopožičovni. Rezervujte online.">
+    <link rel="stylesheet" href="../styles/main.css?v=2.6.0">
+    <link rel="stylesheet" href="../styles/components/header.css?v=2.6.0">
+    <link rel="stylesheet" href="../styles/components/footer.css?v=2.6.0">
+    <link rel="stylesheet" href="../styles/subpages/car-detail.css?v=2.7.0">
+    <link rel="stylesheet" href="../styles/cookies.css?v=2.6.0">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Product",
+                "@id": "https://autopozicovnamichalovce.sk/vozidlo#product",
+                "name": "Prenájom vozidiel",
+                "description": "Prenájom spoľahlivých vozidiel s kompletným poistením",
+                "category": "Car Rental",
+                "brand": {
+                    "@type": "Brand",
+                    "name": "Darius Garage"
+                },
+                "offers": {
+                    "@type": "AggregateOffer",
+                    "lowPrice": "25",
+                    "highPrice": "80",
+                    "priceCurrency": "EUR",
+                    "offerCount": "6",
+                    "availability": "https://schema.org/InStock",
+                    "validFrom": "2024-01-01",
+                    "seller": {
+                        "@id": "https://autopozicovnamichalovce.sk/#business"
+                    }
+                },
+                "provider": {
+                    "@id": "https://autopozicovnamichalovce.sk/#business"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Domov",
+                        "item": "https://autopozicovnamichalovce.sk/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Vozidlo",
+                        "item": "https://autopozicovnamichalovce.sk/vozidlo"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Car Detail Section -->
+        <section class="car-detail-hero">
+            <div class="container">
+                <div class="car-detail-grid">
+                    <div class="car-image-section">
+                        <div class="car-header">
+                            <h1 id="carTitle">Kia Stonic</h1>
+                           
+                        </div>
+                        
+                        <div class="main-image">
+                            <img id="carMainImage" src="../sources/cars/kia stonic.png" alt="Kia Stonic">
+                        </div>
+                       
+                        
+                        
+                        
+                        <div class="car-features-detail">
+                            <h3>Špecifikácie vozidla</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <span class="feature-label">Počet miest</span>
+                                    <span class="feature-value" id="carSeats">5</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Prevodovka</span>
+                                    <span class="feature-value" id="carTransmission">Manuál</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Palivo</span>
+                                    <span class="feature-value" id="carFuel">Benzín</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-label">Batožina</span>
+                                    <span class="feature-value" id="carLuggage">3 kusy</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pricing-table">
+                            <div class="pricing-grid">
+                                <div class="pricing-row pricing-header">
+                                    <span>Trvanie</span>
+                                    <span>Cena za deň</span>
+                                </div>
+                                <div class="pricing-row" id="pricing1day">
+                                    <span>1 deň</span>
+                                    <span class="price">70€</span>
+                                </div>
+                                <div class="pricing-row" id="pricing2-3days">
+                                    <span>2 - 3 dni</span>
+                                    <span class="price">65€</span>
+                                </div>
+                                <div class="pricing-row" id="pricing4-7days">
+                                    <span>4 - 7 dní</span>
+                                    <span class="price">60€</span>
+                                </div>
+                                <div class="pricing-row" id="pricing7-21days">
+                                    <span>7 - 21 dní</span>
+                                    <span class="price">50€</span>
+                                </div>
+                                <div class="pricing-row" id="pricing21plus">
+                                    <span>21 dní a viac</span>
+                                    <span class="price">Cena dohodou</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="car-info-section">
+                        <div class="reservation-form">
+                            <h3>Nezáväzná rezervácia</h3>
+                            <form id="reservationForm">
+                                <div class="form-row date-row">
+                                    <div class="form-group">
+                                        <label for="pickupDate">Dátum prevzatia</label>
+                                        <input type="date" id="pickupDate" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="returnDate">Dátum vrátenia</label>
+                                        <input type="date" id="returnDate" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pickupTime">Čas prevzatia</label>
+                                        <select id="pickupTime" required>
+                                            <option value="">Vyberte čas</option>
+                                            <option value="08:00">08:00</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="returnTime">Čas vrátenia</label>
+                                        <select id="returnTime" required>
+                                            <option value="">Vyberte čas</option>
+                                            <option value="08:00">08:00</option>
+                                            <option value="09:00">09:00</option>
+                                            <option value="10:00">10:00</option>
+                                            <option value="11:00">11:00</option>
+                                            <option value="12:00">12:00</option>
+                                            <option value="13:00">13:00</option>
+                                            <option value="14:00">14:00</option>
+                                            <option value="15:00">15:00</option>
+                                            <option value="16:00">16:00</option>
+                                            <option value="17:00">17:00</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="pickupLocation">Miesto prevzatia</label>
+                                        <select id="pickupLocation" required>
+                                            <option value="">Vyberte miesto</option>
+                                            <option value="michalovce">Michalovce - Stavbárov 8</option>
+                                            <option value="delivery">Michalovce dovoz (+5€)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="returnLocation">Miesto vrátenia</label>
+                                        <select id="returnLocation" required>
+                                            <option value="">Vyberte miesto</option>
+                                            <option value="michalovce">Michalovce - Stavbárov 8</option>
+                                            <option value="pickup">Michalovce vyzdvihnutie (+5€)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="price-summary">
+                                    <div class="summary-row">
+                                        <span>Počet dní:</span>
+                                        <span id="totalDays">0</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Cena za deň:</span>
+                                        <span id="dailyRate">35€</span>
+                                    </div>
+                                    <div class="summary-row total">
+                                        <span>Celková cena:</span>
+                                        <span id="totalPrice">0€</span>
+                                    </div>
+                                    <div class="summary-row deposit">
+                                        <span>Vratná kaucia:</span>
+                                        <span>500€</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="reservation-note">
+                                    <p><strong>Poistenie a Slovenská diaľničná známka v cene prenájmu.</strong></p>
+                                    <p>Denný limit 200km, nad limit 0,10€/km.</p>
+                                </div>
+                                
+                                <button type="submit" class="btn-primary btn-large step-btn">Pokračovať v rezervácii</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Car Description -->
+        <section class="car-description">
+            <div class="container">
+                <div class="description-content">
+                    <h2>O tomto vozidle</h2>
+                    <p id="carDescription">Kia Stonic je moderné kompaktné crossover vozidlo, ktoré kombinuje štýl, komfort a praktickosť. Ideálne pre mestskú jazdu i dlhšie výlety. Vozidlo je vybavené najnovšími bezpečnostnými prvkami a ponúka výnimočný jazdný komfort.</p>
+                    
+                    <div class="features-list">
+                        <h3>Štandardné vybavenie</h3>
+                        <ul class="features-checklist">
+                            <li>Klimatizácia</li>
+                            <li>Elektrické okná</li>
+                            <li>Centrálne zamykanie</li>
+                            <li>Audio systém</li>
+                            <li>USB pripojenie</li>
+                            <li>Bezpečnostné airbags</li>
+                            <li>ABS brzdový systém</li>
+                            <li>Parkovacie senzory</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Steps Container -->
+        <div id="reservationSteps" class="reservation-steps-container" style="display: none;">
+            <div class="container">
+                <div class="steps-header">
+                    <button class="popup-close" onclick="closeReservationSteps()">×</button>
+                    <div class="step-indicator">
+                        <div class="step active" data-step="1">
+                            <span class="step-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.22.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+                                </svg>
+                            </span>
+                            <span class="step-title">Vozidlo</span>
+                        </div>
+                        <div class="step" data-step="2">
+                            <span class="step-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97c0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1c0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/>
+                                </svg>
+                            </span>
+                            <span class="step-title">Služby</span>
+                        </div>
+                        <div class="step" data-step="3">
+                            <span class="step-icon">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </span>
+                            <span class="step-title">Údaje</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="steps-content">
+                    <!-- Step 1: Car Summary -->
+                    <div class="step-content active" id="step1">
+                        <div class="step-layout">
+                            <div class="step-left">
+                                <div class="car-summary">
+                                    <img id="summaryCarImage" src="sources/cars/kia stonic.png" alt="Kia Stonic">
+                                    <div class="car-summary-info">
+                                        <h3 id="summaryCarTitle">Kia Stonic</h3>
+                                        <div class="summary-details">
+                                            <p><strong>Dátum prevzatia:</strong> <span id="summaryPickupDate">-</span></p>
+                                            <p><strong>Dátum vrátenia:</strong> <span id="summaryReturnDate">-</span></p>
+                                            <p><strong>Miesto prevzatia:</strong> <span id="summaryPickupLocation">-</span></p>
+                                            <p><strong>Počet dní:</strong> <span id="summaryDays">-</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-breakdown">
+                                    <h4>Cenový rozpis</h4>
+                                    <div class="price-item">
+                                        <span>Prenájom vozidla (<span id="summaryDaysCount">0</span> dní)</span>
+                                        <span id="summaryCarPrice">0€</span>
+                                    </div>
+                                    <div class="price-total">
+                                        <span>Celková cena:</span>
+                                        <span id="summarySubtotal">0€</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-right">
+                                <h2>Dátum prenájmu</h2>
+                                <form id="step1Form">
+                                    <div class="form-row date-row">
+                                        <div class="form-group">
+                                            <label for="step1PickupDate">Dátum prevzatia</label>
+                                            <input type="date" id="step1PickupDate" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="step1ReturnDate">Dátum vrátenia</label>
+                                            <input type="date" id="step1ReturnDate" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="step1PickupTime">Čas prevzatia</label>
+                                            <select id="step1PickupTime" required>
+                                                <option value="">Vyberte čas</option>
+                                                <option value="08:00">08:00</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="step1ReturnTime">Čas vrátenia</label>
+                                            <select id="step1ReturnTime" required>
+                                                <option value="">Vyberte čas</option>
+                                                <option value="08:00">08:00</option>
+                                                <option value="09:00">09:00</option>
+                                                <option value="10:00">10:00</option>
+                                                <option value="11:00">11:00</option>
+                                                <option value="12:00">12:00</option>
+                                                <option value="13:00">13:00</option>
+                                                <option value="14:00">14:00</option>
+                                                <option value="15:00">15:00</option>
+                                                <option value="16:00">16:00</option>
+                                                <option value="17:00">17:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="step1PickupLocation">Miesto prevzatia</label>
+                                            <select id="step1PickupLocation" required>
+                                                <option value="">Vyberte miesto</option>
+                                                <option value="michalovce">Michalovce - Stavbárov 8</option>
+                                
+                                                <option value="delivery">Michalovce dovoz (+5€)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="step1ReturnLocation">Miesto vrátenia</label>
+                                            <select id="step1ReturnLocation" required>
+                                                <option value="">Vyberte miesto</option>
+                                                <option value="michalovce">Michalovce - Stavbárov 8</option>
+                                                <option value="pickup">Michalovce vyzdvihnutie (+5€)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <div></div>
+                            <button class="btn-primary step-btn" onclick="nextStep(2)">Pokračovať</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Insurance & Services -->
+                    <div class="step-content" id="step2">
+                        <div class="step-layout">
+                            <div class="step-left">
+                                <div class="car-summary">
+                                    <img id="summaryCarImage2" src="sources/cars/kia stonic.png" alt="Kia Stonic">
+                                    <div class="car-summary-info">
+                                        <h3 id="summaryCarTitle2">Kia Stonic</h3>
+                                        <div class="summary-details">
+                                            <p><strong>Dátum prevzatia:</strong> <span id="summaryPickupDate2">-</span></p>
+                                            <p><strong>Dátum vrátenia:</strong> <span id="summaryReturnDate2">-</span></p>
+                                            <p><strong>Miesto prevzatia:</strong> <span id="summaryPickupLocation2">-</span></p>
+                                            <p><strong>Počet dní:</strong> <span id="summaryDays2">-</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-breakdown">
+                                    <h4>Cenový rozpis</h4>
+                                    <div class="price-item">
+                                        <span>Prenájom vozidla</span>
+                                        <span id="step2CarPrice">0€</span>
+                                    </div>
+                                    <div class="price-item" id="premiumInsurancePrice" style="display: none;">
+                                        <span>Prémiové poistenie</span>
+                                        <span>0€</span>
+                                    </div>
+                                    <div class="price-item" id="servicesPrice" style="display: none;">
+                                        <span>Dodatočné služby</span>
+                                        <span>0€</span>
+                                    </div>
+                                    <div class="price-total">
+                                        <span>Celková cena:</span>
+                                        <span id="step2TotalPrice">0€</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-right">
+                                <div class="services-section">
+                                    <div class="insurance-options">
+                                        <h3>Poistenie</h3>
+                                        <div class="services-grid">
+                                            <div class="service-option">
+                                                <label class="service-checkbox">
+                                                    <input type="checkbox" name="insurance" value="complete" checked disabled>
+                                                    <span class="checkmark"></span>
+                                                    <div class="service-info">
+                                                        <strong>Kompletné havárijné poistenie</strong>
+                                                        <p>Zahrnuté</p>
+                                                        <span class="service-price"></span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="additional-services">
+                                        <h3>Dodatočné služby</h3>
+                                        <div class="services-grid">
+                                            <div class="service-option">
+                                                <label class="service-checkbox">
+                                                    <input type="checkbox" name="services" value="gps">
+                                                    <span class="checkmark"></span>
+                                                    <div class="service-info">
+                                                        <strong>GPS navigácia</strong>
+                                                        <p>Najnovšie mapy Slovenska</p>
+                                                        <span class="service-price">15€</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="service-option">
+                                                <label class="service-checkbox">
+                                                    <input type="checkbox" name="services" value="cleaning">
+                                                    <span class="checkmark"></span>
+                                                    <div class="service-info">
+                                                        <strong>Čistenie vozidla</strong>
+                                                        <p>Vozidlo vyčistíme po prevzatí za Vás</p>
+                                                        <span class="service-price">+35€</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="service-option">
+                                                <label class="service-checkbox">
+                                                    <input type="checkbox" name="services" value="delivery">
+                                                    <span class="checkmark"></span>
+                                                    <div class="service-info">
+                                                        <strong>Doručenie vozidla</strong>
+                                                        <p>Doručíme vozidlo v rámci Michaloviec</p>
+                                                        <span class="service-price">+5€</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="service-option">
+                                                <label class="service-checkbox">
+                                                    <input type="checkbox" name="services" value="pickup">
+                                                    <span class="checkmark"></span>
+                                                    <div class="service-info">
+                                                        <strong>Prevzatie vozidla</strong>
+                                                        <p>Vyzdvihneme si vozidlo v rámci Michaloviec</p>
+                                                        <span class="service-price">+5€</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="btn-secondary step-btn" onclick="prevStep(1)">Späť</button>
+                            <button class="btn-primary step-btn" onclick="nextStep(3)">Pokračovať</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Personal Info -->
+                    <div class="step-content" id="step3">
+                        <div class="step-layout">
+                            <div class="step-left">
+                                <div class="car-summary">
+                                    <img id="summaryCarImage3" src="sources/cars/kia stonic.png" alt="Kia Stonic">
+                                    <div class="car-summary-info">
+                                        <h3 id="summaryCarTitle3">Kia Stonic</h3>
+                                        <div class="summary-details">
+                                            <p><strong>Dátum prevzatia:</strong> <span id="summaryPickupDate3">-</span></p>
+                                            <p><strong>Dátum vrátenia:</strong> <span id="summaryReturnDate3">-</span></p>
+                                            <p><strong>Miesto prevzatia:</strong> <span id="summaryPickupLocation3">-</span></p>
+                                            <p><strong>Počet dní:</strong> <span id="summaryDays3">-</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-breakdown">
+                                    <h4>Cenový rozpis</h4>
+                                    <div class="final-price-items" id="finalPriceItems">
+                                        <!-- Dynamic content -->
+                                    </div>
+                                    <div class="price-total">
+                                        <span>Celková cena:</span>
+                                        <span id="finalTotalPrice">0€</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-right">
+                                <h2>Osobné údaje a finálne potvrdenie</h2>
+                                <div class="personal-info-section">
+                                    <form id="personalInfoForm">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="firstName">Meno *</label>
+                                                <input type="text" id="firstName" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastName">Priezvisko *</label>
+                                                <input type="text" id="lastName" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="email">Email *</label>
+                                                <input type="email" id="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone">Telefón *</label>
+                                                <input type="tel" id="phone" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="birthDate">Dátum narodenia *</label>
+                                                <input type="date" id="birthDate" required>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <div class="terms-section">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="termsAccepted" required>
+                                        <span>Súhlasím s <a href="ochrana-osobnych-udajov" target="_blank">ochranou osobných údajov</a></span>
+                                    </label>
+                                    <button class="btn-primary step-btn btn-large confirm-btn" onclick="completeReservation()">Odoslať dopyt</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-actions">
+                            <button class="btn-secondary step-btn" onclick="prevStep(2)">Späť</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/components/header.js?v=2.6.0"></script>
+    <script src="../js/components/footer.js?v=2.6.0"></script>
+    <script src="../js/cookies.js?v=2.6.0"></script>
+    <script src="../js/car-detail.js?v=2.7.0"></script>
+    <script src="../js/main.js?v=2.6.0"></script>
+</body>
+</html>
