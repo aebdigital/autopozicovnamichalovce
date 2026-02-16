@@ -273,10 +273,22 @@ export default function CarDetailClient({ car }: { car: Car }) {
                       <span>Cena za deň:</span>
                       <span className="text-white text-lg">{dailyRate}€</span>
                     </div>
+                    {pickupLocation === "delivery" && (
+                      <div className="flex justify-between items-center text-sm font-medium text-gray-400">
+                        <span>Dovoz (MI):</span>
+                        <span className="text-white text-lg">+5€</span>
+                      </div>
+                    )}
+                    {returnLocation === "pickup" && (
+                      <div className="flex justify-between items-center text-sm font-medium text-gray-400">
+                        <span>Vyzdvihnutie (MI):</span>
+                        <span className="text-white text-lg">+5€</span>
+                      </div>
+                    )}
                     <div className="pt-4 border-t border-gray-800 flex justify-between items-end">
                       <div className="space-y-1">
                         <span className="text-xs font-bold text-[#E41C31] uppercase tracking-widest">Celková cena</span>
-                        <div className="text-3xl font-black">{basePrice}€</div>
+                        <div className="text-3xl font-black">{totalPrice}€</div>
                       </div>
                       <div className="text-right">
                         <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest block">Vratná kaucia</span>
