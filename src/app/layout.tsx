@@ -15,36 +15,64 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL('https://autopozicovnamichalovce.sk'),
   title: {
-    default:
-      "Autopožičovňa Michalovce - Spoľahlivá požičovňa áut | Darius Garage",
+    default: "Autopožičovňa Michalovce - Spoľahlivá požičovňa áut | Darius Garage",
     template: "%s | Darius Garage",
   },
   description:
-    "Autopožičovňa Michalovce ponúka spoľahlivú požičovňu prémiových áut. Široký výber vozidiel, výhodné ceny, kompletné poistenie a profesionálne služby. Rezervujte online!",
+    "Prémiová autopožičovňa v Michalovciach. Široký výber nových vozidiel, kompletné poistenie, diaľničná známka v cene a profesionálny prístup. Rezervujte si auto online ešte dnes!",
   keywords: [
     "autopožičovňa Michalovce",
-    "požičovňa áut",
-    "prenájom áut",
-    "Košice",
-    "Prešov",
+    "požičovňa áut Michalovce",
+    "prenájom áut Michalovce",
+    "dlhodobý prenájom áut",
+    "lacná autopožičovňa",
+    "Darius Garage",
+    "auto na prenájom",
+    "Michalovce car rental"
   ],
-  authors: [{ name: "Darius Garage s.r.o." }],
+  authors: [{ name: "Darius Garage", url: "https://autopozicovnamichalovce.sk" }],
+  creator: "AEB Digital",
+  publisher: "Darius Garage s.r.o.",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Autopožičovňa Michalovce - Spoľahlivá požičovňa áut",
-    description:
-      "Prenájom prémiových áut v Michalovciach. Široký výber vozidiel, výhodné ceny a profesionálne služby.",
+    title: "Autopožičovňa Michalovce - Spoľahlivá požičovňa áut | Darius Garage",
+    description: "Prémiová autopožičovňa v Michalovciach. Široký výber vozidiel, výhodné ceny a profesionálne služby. Poistenie a diaľničná známka v cene.",
     url: "https://autopozicovnamichalovce.sk",
-    siteName: "Darius Garage - Autopožičovňa Michalovce",
+    siteName: "Darius Garage",
+    images: [
+      {
+        url: "/hero.webp",
+        width: 1200,
+        height: 630,
+        alt: "Darius Garage - Autopožičovňa Michalovce",
+      },
+    ],
     locale: "sk_SK",
     type: "website",
-    images: [{ url: "/hero.webp" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Autopožičovňa Michalovce - Spoľahlivá požičovňa áut",
-    description:
-      "Prenájom prémiových áut v Michalovciach. Široký výber vozidiel, výhodné ceny a profesionálne služby.",
+    title: "Autopožičovňa Michalovce - Darius Garage",
+    description: "Prenájom prémiových áut v Michalovciach. Férové ceny a skvelý prístup.",
     images: ["/hero.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 

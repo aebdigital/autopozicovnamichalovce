@@ -42,8 +42,46 @@ export default async function HomePage() {
   const cars = await getCars();
   const featuredCars = cars.filter(c => c.show_on_homepage);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AutoRental",
+    "name": "Darius Garage - Autopožičovňa Michalovce",
+    "image": "https://autopozicovnamichalovce.sk/hero.webp",
+    "@id": "https://autopozicovnamichalovce.sk/",
+    "url": "https://autopozicovnamichalovce.sk/",
+    "telephone": "0951350640",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Stavbárov 8",
+      "addressLocality": "Michalovce",
+      "postalCode": "07101",
+      "addressCountry": "SK"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 48.75626,
+      "longitude": 21.91427
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section */}
       <Hero />
 
