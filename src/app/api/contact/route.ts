@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -8,56 +9,66 @@ export async function POST(request: Request) {
     // Validation
     if (!name || !email || !subject || !message) {
       return NextResponse.json(
-        { success: false, message: "Vyplnte prosim vsetky povinne polia." },
+        { success: false, message: "Vyplňte prosím všetky povinné polia." },
         { status: 400 }
       );
     }
 
     if (!gdpr) {
       return NextResponse.json(
-        { success: false, message: "Musite suhlasit so spracovanim osobnych udajov." },
+        { success: false, message: "Musíte súhlasiť so spracovaním osobných údajov." },
         { status: 400 }
       );
     }
 
-    // Email regex validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { success: false, message: "Zadajte prosim platnu emailovu adresu." },
+        { success: false, message: "Zadajte prosím platnú emailovú adresu." },
         { status: 400 }
       );
     }
 
-    // Map subject to readable text
     const subjectMap: Record<string, string> = {
-      booking: "Nova rezervacia",
-      modification: "Uprava existujucej rezervacie",
-      support: "Zakaznicka podpora",
-      complaint: "Staznost",
-      feedback: "Vseobecna spatna vazba",
-      other: "Ine",
+      booking: "Nová rezervácia",
+      modification: "Úprava rezervácie",
+      support: "Zákaznícka podpora",
+      other: "Iné",
     };
 
     const subjectText = subjectMap[subject] || subject;
 
-    // TODO: Integrate with your email service (e.g., Resend, SendGrid, Nodemailer)
-    // For now, log the data
-    console.log("Contact form submission:", {
-      name,
-      email,
-      phone,
-      subject: subjectText,
-      message,
+    // Send email to admin
+    const adminEmail = await sendEmail({
+      to: "info@dariusgarage.sk", // Adjust if needed
+      subject: `Kontaktný formulár: ${subjectText} - ${name}`,
+      html: `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+          <h2 style="color: #E41C31;">Nová správa z webu</h2>
+          <p><strong>Meno:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Telefón:</strong> ${phone || "Neuvedené"}</p>
+          <p><strong>Predmet:</strong> ${subjectText}</p>
+          <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 5px;">
+            <p><strong>Správa:</strong></p>
+            <p style="white-space: pre-wrap;">${message}</p>
+          </div>
+        </div>
+      `,
     });
+
+    if (!adminEmail.success) {
+      throw new Error(adminEmail.error);
+    }
 
     return NextResponse.json({
       success: true,
-      message: "Dakujeme za vasu spravu! Odpovieme vam co najskor.",
+      message: "Ďakujeme za vašu správu! Odpovieme vám čo najskôr.",
     });
-  } catch {
+  } catch (error) {
+    console.error("Contact API error:", error);
     return NextResponse.json(
-      { success: false, message: "Doslo k chybe pri spracovani spravy." },
+      { success: false, message: "Došlo k chybe pri odosielaní správy. Skúste to prosím neskôr." },
       { status: 500 }
     );
   }
