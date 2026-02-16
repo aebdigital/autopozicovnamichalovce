@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
     const subjectText = subjectMap[subject] || subject;
 
-    const recipientEmail = process.env.CONTACT_FORM_RECIPIENT || "info@dariusgarage.sk";
+    const recipientEmail = process.env.CONTACT_EMAIL || "info@dariusgarage.sk";
 
     // Send email to admin
     const adminEmail = await sendEmail({

@@ -85,7 +85,7 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    const adminRecipient = process.env.RESERVATION_RECIPIENT || "info@dariusgarage.sk";
+    const adminRecipient = process.env.CONTACT_EMAIL || "info@dariusgarage.sk";
 
     // Send email to admin
     await sendEmail({

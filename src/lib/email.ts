@@ -1,6 +1,6 @@
 export async function sendEmail({ to, subject, html, text }: { to: string, subject: string, html: string, text?: string }) {
     const API_KEY = process.env.SMTP2GO_API_KEY;
-    const SENDER = process.env.SMTP2GO_SENDER || "info@dariusgarage.sk";
+    const SENDER = process.env.SMTP_FROM_EMAIL || "info@dariusgarage.sk";
 
     if (!API_KEY) {
         console.error("SMTP2GO_API_KEY is not defined");

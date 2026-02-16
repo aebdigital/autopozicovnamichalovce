@@ -13,6 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://autopozicovnamichalovce.sk'),
   title: {
     default:
       "Autopožičovňa Michalovce - Spoľahlivá požičovňa áut | Darius Garage",
