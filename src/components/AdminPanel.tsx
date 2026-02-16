@@ -196,8 +196,22 @@ export default function AdminPanel({ initialCars }: { initialCars: Car[] }) {
         setLoading(true)
 
         try {
+            const generateSlug = (brand: string, model: string) => {
+                const text = `${brand}-${model}`;
+                return text
+                    .toString()
+                    .normalize('NFD')                   // split accented characters into their base characters and diacritical marks
+                    .replace(/[\u0300-\u036f]/g, '')   // remove all the accents
+                    .toLowerCase()
+                    .trim()
+                    .replace(/\s+/g, '-')              // replace spaces with -
+                    .replace(/[^\w-]+/g, '')           // remove all non-word chars
+                    .replace(/--+/g, '-');             // replace multiple - with single -
+            };
+
             const carData = {
                 ...formData,
+                slug: generateSlug(formData.brand || '', formData.model || ''),
                 site_id: process.env.NEXT_PUBLIC_SITE_ID,
                 source: 'admin'
             }

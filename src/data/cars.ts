@@ -16,6 +16,7 @@ export interface CarLimits {
 
 export interface Car {
   id: string;
+  slug: string;
   name: string;
   price: number;
   image: string;
@@ -74,6 +75,7 @@ export async function getCars(): Promise<Car[]> {
 
     return {
       id: dbCar.id,
+      slug: dbCar.slug || dbCar.id,
       name: meta.name || `${dbCar.brand} ${dbCar.model}`,
       price: dbCar.price,
       image: imageUrl,
@@ -97,7 +99,7 @@ export async function getCarBySlug(slug: string): Promise<Car | undefined> {
   const { data, error } = await supabase
     .from("cars")
     .select("*")
-    .eq("id", slug)
+    .or(`slug.eq."${slug}",id.eq."${slug}"`)
     .single();
 
   if (error || !data) {
@@ -116,6 +118,7 @@ export async function getCarBySlug(slug: string): Promise<Car | undefined> {
 
   return {
     id: dbCar.id,
+    slug: dbCar.slug || dbCar.id,
     name: meta.name || `${dbCar.brand} ${dbCar.model}`,
     price: dbCar.price,
     image: imageUrl,

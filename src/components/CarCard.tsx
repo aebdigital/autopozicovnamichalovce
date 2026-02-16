@@ -4,7 +4,7 @@ import type { Car } from "@/data/cars";
 
 export default function CarCard({ car }: { car: Car }) {
   return (
-    <Link href={`/vozidlo/${car.id}`} className="group block">
+    <Link href={`/vozidlo/${car.slug}`} className="group block">
       <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#E41C31]/5 hover:-translate-y-2">
         <div className="relative aspect-[16/10] bg-gray-50 overflow-hidden">
           <Image

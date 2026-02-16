@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Dynamic car routes
     const cars = await getCars();
     const carRoutes = cars.map((car) => ({
-        url: `${baseUrl}/vozidlo/${car.id}`,
+        url: `${baseUrl}/vozidlo/${car.slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.7,
