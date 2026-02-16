@@ -99,7 +99,7 @@ export async function getCarBySlug(slug: string): Promise<Car | undefined> {
   const { data, error } = await supabase
     .from("cars")
     .select("*")
-    .or(`slug.eq."${slug}",id.eq."${slug}"`)
+    .or(`slug.eq.${slug},id.eq.${slug}`)
     .single();
 
   if (error || !data) {

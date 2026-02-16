@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getCarBySlug } from "@/data/cars";
+import { getCarBySlug, getCars } from "@/data/cars";
 import CarDetailClient from "./CarDetailClient";
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const cars = await getCars();
+  return cars.map((car) => ({
+    slug: car.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
