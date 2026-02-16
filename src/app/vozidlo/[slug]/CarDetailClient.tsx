@@ -48,7 +48,9 @@ export default function CarDetailClient({ car }: { car: Car }) {
     (services.gps ? 15 : 0) +
     (services.cleaning ? 35 : 0) +
     (services.delivery ? 5 : 0) +
-    (services.pickup ? 5 : 0);
+    (services.pickup ? 5 : 0) +
+    (pickupLocation === "delivery" ? 5 : 0) +
+    (returnLocation === "pickup" ? 5 : 0);
 
   const totalPrice = basePrice + servicesPrice;
 
@@ -65,11 +67,14 @@ export default function CarDetailClient({ car }: { car: Car }) {
   useEffect(() => {
     if (showModal || showSuccess) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
     }
     return () => {
       document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
     };
   }, [showModal, showSuccess]);
 
