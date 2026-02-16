@@ -1,4 +1,14 @@
-import { createClient } from "@/lib/supabase/client";
+import { createClient } from "@supabase/supabase-js";
+
+// Helper to get a fresh client to avoid environment variable race conditions during build
+function getSupabase() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  if (!url || !key) {
+    throw new Error("Supabase environment variables are missing.");
+  }
+  return createClient(url, key);
+}
 
 export interface CarPricing {
   "1day": number;
@@ -49,7 +59,7 @@ const defaultLimits: CarLimits = {
 };
 
 export async function getCars(): Promise<Car[]> {
-  const supabase = createClient();
+  const supabase = getSupabase();
   const { data, error } = await supabase
     .from("cars")
     .select("*")
@@ -95,16 +105,41 @@ export async function getCars(): Promise<Car[]> {
 }
 
 export async function getCarBySlug(slug: string): Promise<Car | undefined> {
-  const supabase = createClient();
-  const { data, error } = await supabase
+  const supabase = getSupabase();
+  console.log(`[getCarBySlug] Looking for car with slug/id: ${slug}`);
+
+  // Try finding by slug first within the current site
+  let { data, error } = await supabase
     .from("cars")
     .select("*")
-    .or(`slug.eq.${slug},id.eq.${slug}`)
-    .single();
+    .eq("site_id", process.env.NEXT_PUBLIC_SITE_ID!)
+    .eq("slug", slug)
+    .maybeSingle();
 
-  if (error || !data) {
+  // Fallback to ID if slug not found
+  if (!data || error) {
+    const { data: idData, error: idError } = await supabase
+      .from("cars")
+      .select("*")
+      .eq("site_id", process.env.NEXT_PUBLIC_SITE_ID!)
+      .eq("id", slug)
+      .maybeSingle();
+
+    data = idData;
+    error = idError;
+  }
+
+  if (error) {
+    console.error(`[getCarBySlug] Error fetching car:`, error);
     return undefined;
   }
+
+  if (!data) {
+    console.log(`[getCarBySlug] No car found for: ${slug}`);
+    return undefined;
+  }
+
+  console.log(`[getCarBySlug] Found car: ${data.brand} ${data.model} (ID: ${data.id})`);
 
   const dbCar = data;
   const meta = dbCar.metadata || {};

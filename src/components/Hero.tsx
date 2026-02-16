@@ -26,7 +26,7 @@ export default function Hero() {
             </motion.div>
             <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
             <div className="relative z-10 max-w-[90%] mx-auto sm:px-6 lg:px-8 text-left w-full">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight drop-shadow-2xl uppercase">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white italic leading-tight tracking-tighter drop-shadow-2xl uppercase">
                     Spoľahlivá autopožičovňa<br />v Michalovciach
                 </h1>
                 <p className="mt-6 text-lg md:text-2xl text-gray-100 max-w-3xl font-light drop-shadow-md">
