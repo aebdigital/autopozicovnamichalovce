@@ -1,7 +1,7 @@
 'use client'
 
 import { createClient } from '@/lib/supabase/client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Plus, Edit2, Trash2, Check, X, Image as ImageIcon, Calendar, Fuel, Activity, Cog, Gauge, Car as CarIcon, DollarSign } from 'lucide-react'
 
@@ -35,6 +35,20 @@ export default function AdminPanel({ initialCars }: { initialCars: Car[] }) {
     const [editingCar, setEditingCar] = useState<Car | null>(null)
     const [loading, setLoading] = useState(false)
     const [uploading, setUploading] = useState(false)
+
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+            // Also unset on html to be safe with Lenis
+            document.documentElement.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
+        };
+    }, [isModalOpen]);
 
     // Form State
     const [formData, setFormData] = useState<Partial<Car>>({

@@ -60,6 +60,18 @@ export default function CarDetailClient({ car }: { car: Car }) {
     }
   }, [pickupDate, returnDate]);
 
+  // Disable scrolling when modal is open
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [showModal]);
+
   const pricingTiers = [
     { label: "1 deň", price: car.pricing["1day"] + "€" },
     { label: "2 - 3 dni", price: car.pricing["2-3days"] + "€" },
