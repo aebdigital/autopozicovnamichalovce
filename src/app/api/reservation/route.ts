@@ -85,9 +85,11 @@ export async function POST(request: Request) {
       </div>
     `;
 
+    const adminRecipient = process.env.RESERVATION_RECIPIENT || "info@dariusgarage.sk";
+
     // Send email to admin
     await sendEmail({
-      to: "info@dariusgarage.sk",
+      to: adminRecipient,
       subject: `Nová rezervácia: ${carTitle} - ${firstName} ${lastName}`,
       html: emailHtml,
     });

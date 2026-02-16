@@ -12,6 +12,12 @@ SMTP2GO_API_KEY=api-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 # Odosielateľ e-mailov (musí byť overená doména v SMTP2GO)
 SMTP2GO_SENDER=info@dariusgarage.sk
+
+# Adresa, kam chodia správy z kontaktného formulára (voliteľné, predvolené: info@dariusgarage.sk)
+CONTACT_FORM_RECIPIENT=info@dariusgarage.sk
+
+# Adresa, kam chodia nové rezervácie (voliteľné, predvolené: info@dariusgarage.sk)
+RESERVATION_RECIPIENT=info@dariusgarage.sk
 ```
 
 ## 📂 Súbory zabezpečujúce e-maily:

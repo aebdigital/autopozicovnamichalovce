@@ -38,9 +38,11 @@ export async function POST(request: Request) {
 
     const subjectText = subjectMap[subject] || subject;
 
+    const recipientEmail = process.env.CONTACT_FORM_RECIPIENT || "info@dariusgarage.sk";
+
     // Send email to admin
     const adminEmail = await sendEmail({
-      to: "info@dariusgarage.sk", // Adjust if needed
+      to: recipientEmail,
       subject: `Kontaktný formulár: ${subjectText} - ${name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
