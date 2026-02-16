@@ -3,3 +3,18 @@
 @theme inline {
   --font-sans: var(--font-inter);
 }
+
+html {
+  scrollbar-gutter: stable;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+}
+
+[data-lenis-prevent] {
+  touch-action: auto !important;
+}

@@ -66,15 +66,12 @@ export default function CarDetailClient({ car }: { car: Car }) {
   // Disable scrolling when modal is open
   useEffect(() => {
     if (showModal || showSuccess) {
-      document.body.style.overflow = "hidden";
-      document.documentElement.style.overflow = "hidden";
+      document.documentElement.classList.add("no-scroll");
     } else {
-      document.body.style.overflow = "unset";
-      document.documentElement.style.overflow = "unset";
+      document.documentElement.classList.remove("no-scroll");
     }
     return () => {
-      document.body.style.overflow = "unset";
-      document.documentElement.style.overflow = "unset";
+      document.documentElement.classList.remove("no-scroll");
     };
   }, [showModal, showSuccess]);
 
@@ -370,7 +367,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-6 md:p-10">
+            <div className="flex-1 overflow-y-auto p-6 md:p-10" data-lenis-prevent>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
                 {/* Left - Sticky Summary (Always visible in steps) */}
@@ -563,7 +560,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
       )}
       {/* Success Modal */}
       {showSuccess && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4">
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4" data-lenis-prevent>
           <div className="bg-white rounded-[3rem] max-w-lg w-full p-10 md:p-16 text-center shadow-2xl animate-in fade-in zoom-in duration-500">
             <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
               <svg className="w-12 h-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
