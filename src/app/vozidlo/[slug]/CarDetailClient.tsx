@@ -264,7 +264,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
                   </div>
 
                   {/* Price Summary Card */}
-                  <div className="bg-gray-900 rounded-3xl p-6 text-white space-y-4 shadow-xl">
+                  <div className="bg-gray-900 rounded-3xl p-6 text-white space-y-2 shadow-xl">
                     <div className="flex justify-between items-center text-sm font-medium text-gray-400">
                       <span>Počet dní:</span>
                       <span className="text-white text-lg">{days}</span>
@@ -273,19 +273,19 @@ export default function CarDetailClient({ car }: { car: Car }) {
                       <span>Cena za deň:</span>
                       <span className="text-white text-lg">{dailyRate}€</span>
                     </div>
-                    {pickupLocation === "delivery" && (
+                    {(pickupLocation === "delivery" || returnLocation === "pickup") && (
                       <div className="flex justify-between items-center text-sm font-medium text-gray-400">
-                        <span>Dovoz (MI):</span>
-                        <span className="text-white text-lg">+5€</span>
+                        <span>
+                          {pickupLocation === "delivery" && returnLocation === "pickup"
+                            ? "Dovoz + Vyzdvihnutie MI"
+                            : pickupLocation === "delivery" ? "Dovoz (MI)" : "Vyzdvihnutie (MI)"}
+                        </span>
+                        <span className="text-white text-lg">
+                          +{pickupLocation === "delivery" && returnLocation === "pickup" ? "10" : "5"}€
+                        </span>
                       </div>
                     )}
-                    {returnLocation === "pickup" && (
-                      <div className="flex justify-between items-center text-sm font-medium text-gray-400">
-                        <span>Vyzdvihnutie (MI):</span>
-                        <span className="text-white text-lg">+5€</span>
-                      </div>
-                    )}
-                    <div className="pt-4 border-t border-gray-800 flex justify-between items-end">
+                    <div className="pt-4 mt-2 border-t border-gray-800 flex justify-between items-end">
                       <div className="space-y-1">
                         <span className="text-xs font-bold text-[#E41C31] uppercase tracking-widest">Celková cena</span>
                         <div className="text-3xl font-black">{totalPrice}€</div>
