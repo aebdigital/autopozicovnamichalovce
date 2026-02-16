@@ -84,7 +84,7 @@ export default function ContactClient() {
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white italic uppercase tracking-tighter leading-tight drop-shadow-2xl">
                         Budeme radi,<br className="hidden md:block" /> ak sa nám ozvete
                     </h1>
-                    <p className="mt-6 text-xl text-gray-300 font-medium max-w-2xl drop-shadow-md">
+                    <p className="mt-6 text-lg md:text-2xl text-gray-100 max-w-3xl font-light drop-shadow-md">
                         Sme tu pre vás každý pracovný deň. Či už potrebujete rezerváciu, alebo máte otázku, náš tím vám ochotne poradí.
                     </p>
                 </div>

@@ -31,7 +31,7 @@ export default async function FleetPage() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white italic uppercase tracking-tighter leading-tight drop-shadow-2xl">
             Naša flotila<br className="hidden md:block" /> vozidiel
           </h1>
-          <p className="mt-6 text-xl text-gray-300 font-medium max-w-2xl drop-shadow-md">
+          <p className="mt-6 text-lg md:text-2xl text-gray-100 max-w-3xl font-light drop-shadow-md">
             Vyberte si z našej ponuky pravidelne servisovaných vozidiel. Všetky autá sú pripravené na okamžitý prenájom.
           </p>
         </div>
