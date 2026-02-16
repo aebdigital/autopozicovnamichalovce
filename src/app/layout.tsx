@@ -10,6 +10,7 @@ import PageTransition from "@/components/PageTransition";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
