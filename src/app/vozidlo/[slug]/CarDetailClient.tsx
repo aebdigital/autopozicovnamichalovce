@@ -38,6 +38,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
   const [personalInfo, setPersonalInfo] = useState({ firstName: "", lastName: "", email: "", phone: "", birthDate: "" });
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const days = useMemo(() => calculateDaysBetween(pickupDate, returnDate), [pickupDate, returnDate]);
   const dailyRate = useMemo(() => calculateDailyRate(car, days), [car, days]);
@@ -62,7 +63,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
 
   // Disable scrolling when modal is open
   useEffect(() => {
-    if (showModal) {
+    if (showModal || showSuccess) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -70,7 +71,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [showModal]);
+  }, [showModal, showSuccess]);
 
   const pricingTiers = [
     { label: "1 deň", price: car.pricing["1day"] + "€" },
@@ -117,10 +118,11 @@ export default function CarDetailClient({ car }: { car: Car }) {
         }),
       });
       const data = await res.json();
-      alert(data.message);
       if (data.success) {
         setShowModal(false);
-        window.location.href = "/";
+        setShowSuccess(true);
+      } else {
+        alert(data.message || "Došlo k chybe.");
       }
     } catch {
       alert("Došlo k chybe pri odosielaní rezervácie. Skúste to prosím neskôr.");
@@ -539,6 +541,28 @@ export default function CarDetailClient({ car }: { car: Car }) {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+      {/* Success Modal */}
+      {showSuccess && (
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4">
+          <div className="bg-white rounded-[3rem] max-w-lg w-full p-10 md:p-16 text-center shadow-2xl animate-in fade-in zoom-in duration-500">
+            <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce">
+              <svg className="w-12 h-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-4">Rezervácia odoslaná!</h2>
+            <p className="text-gray-500 font-medium leading-relaxed mb-10">
+              Ďakujeme za vašu rezerváciu! Vaša požiadavka bola úspešne odoslaná. Budeme vás kontaktovať na potvrdenie rezervácie.
+            </p>
+            <button
+              onClick={() => window.location.href = "/"}
+              className="w-full bg-gray-900 hover:bg-black text-white py-5 rounded-2xl font-black uppercase tracking-widest text-sm transition-all shadow-xl hover:-translate-y-1 active:scale-95"
+            >
+              Späť na domovskú stránku
+            </button>
           </div>
         </div>
       )}
