@@ -67,11 +67,14 @@ export default function CarDetailClient({ car }: { car: Car }) {
   useEffect(() => {
     if (showModal || showSuccess) {
       document.documentElement.classList.add("no-scroll");
+      window.lenis?.stop();
     } else {
       document.documentElement.classList.remove("no-scroll");
+      window.lenis?.start();
     }
     return () => {
       document.documentElement.classList.remove("no-scroll");
+      window.lenis?.start();
     };
   }, [showModal, showSuccess]);
 
@@ -333,7 +336,7 @@ export default function CarDetailClient({ car }: { car: Car }) {
 
       {/* Legacy-style Reservation Modal */}
       {showModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md overflow-hidden p-4 md:p-8">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md overflow-hidden p-4 md:p-8" data-lenis-prevent>
           <div className="bg-white rounded-[2.5rem] max-w-6xl w-full max-h-[90vh] flex flex-col relative shadow-2xl animate-in fade-in zoom-in duration-300">
             {/* Header with Step Indicator */}
             <div className="bg-gray-900 p-6 md:p-8 rounded-t-[2.5rem] relative">
