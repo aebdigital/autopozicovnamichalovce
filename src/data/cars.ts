@@ -64,6 +64,7 @@ export async function getCars(): Promise<Car[]> {
     .from("cars")
     .select("*")
     .eq("site_id", process.env.NEXT_PUBLIC_SITE_ID!)
+    .is("deleted_at", null)
     .order("created_at", { ascending: false });
 
   if (error) {
@@ -114,6 +115,7 @@ export async function getCarBySlug(slug: string): Promise<Car | undefined> {
     .select("*")
     .eq("site_id", process.env.NEXT_PUBLIC_SITE_ID!)
     .eq("slug", slug)
+    .is("deleted_at", null)
     .maybeSingle();
 
   // Fallback to ID if slug not found
@@ -123,6 +125,7 @@ export async function getCarBySlug(slug: string): Promise<Car | undefined> {
       .select("*")
       .eq("site_id", process.env.NEXT_PUBLIC_SITE_ID!)
       .eq("id", slug)
+      .is("deleted_at", null)
       .maybeSingle();
 
     data = idData;
