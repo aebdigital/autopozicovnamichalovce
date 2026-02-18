@@ -3,6 +3,8 @@ import { getCars } from "@/data/cars";
 import CarCard from "@/components/CarCard";
 import Image from "next/image";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Ponuka vozidiel - Autopožičovňa Michalovce",
   description:

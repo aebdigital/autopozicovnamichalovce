@@ -3,6 +3,8 @@ import { getCars } from "@/data/cars";
 import CarCard from "@/components/CarCard";
 import FAQ from "@/components/FAQ";
 
+export const revalidate = 60;
+
 const reasons = [
   {
     icon: "/icons/novevozidla.svg",

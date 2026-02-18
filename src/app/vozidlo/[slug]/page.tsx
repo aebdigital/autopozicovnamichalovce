@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import { getCarBySlug, getCars } from "@/data/cars";
 import CarDetailClient from "./CarDetailClient";
 
+export const revalidate = 60;
+export const dynamicParams = true;
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
