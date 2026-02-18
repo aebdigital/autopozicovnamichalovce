@@ -42,7 +42,7 @@ import Hero from "@/components/Hero";
 
 export default async function HomePage() {
   const cars = await getCars();
-  const featuredCars = cars.filter(c => c.show_on_homepage);
+  const featuredCars = cars.slice(0, 8);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -96,7 +96,7 @@ export default async function HomePage() {
             </h2>
             <div className="w-24 h-1.5 bg-[#E41C31] mx-auto rounded-full"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredCars.map((car) => (
               <CarCard key={car.id} car={car} />
             ))}

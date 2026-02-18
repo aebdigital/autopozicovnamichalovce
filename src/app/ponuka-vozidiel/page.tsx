@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function FleetPage() {
-  const cars = await getCars();
+  const allCars = await getCars();
+  const cars = allCars.slice(0, 8);
 
   return (
     <>
@@ -41,7 +42,7 @@ export default async function FleetPage() {
 
       <section className="py-20 md:py-32 bg-gray-50">
         <div className="max-w-[90%] mx-auto sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {cars.map((car) => (
               <CarCard key={car.id} car={car} />
             ))}
