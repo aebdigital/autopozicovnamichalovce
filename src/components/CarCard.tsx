@@ -40,7 +40,7 @@ export default function CarCard({ car }: { car: Car }) {
             <div className="flex flex-col">
               <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1">Cena od</span>
               <span className="text-2xl font-black text-gray-900">
-                {car.price}€<span className="text-xs font-bold text-gray-400 ml-1">/ deň</span>
+                {car.pricing["7-21days"]}€<span className="text-xs font-bold text-gray-400 ml-1">/ deň</span>
               </span>
             </div>
             <div className="bg-[#E41C31] text-white w-12 h-12 rounded-2xl flex items-center justify-center group-hover:bg-black transition-all duration-500 shadow-lg shadow-[#E41C31]/20 group-hover:shadow-black/20">
